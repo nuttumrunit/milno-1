@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>somio</title>
+<meta name="description" content="Somio is a self-verifying on-chain agent inspired by the globular springtail: prepare, verify, then leap." />
 <link rel="icon" href="somio.png" />
 <link rel="stylesheet" href="styles.css" />
 </head>
@@ -29,7 +30,7 @@
 <main class="wrap">
 
   <section class="logo">
-    <img src="somio.png" alt="somio" />
+    <img src="somio.png" alt="Somio globular springtail" />
   </section>
 
   <section class="intro">
@@ -46,26 +47,26 @@
   <section class="lore">
     <h2>Background</h2>
     <p>
-      The tardigrade is the water bear. It lives through things that kill almost
-      everything else. Hard vacuum. Temperatures close to absolute zero. Ten
-      years with no water. Radiation that would tear apart an ordinary genome.
+      Somio is a globular springtail: a tiny soil arthropod with a rounded body
+      and a spring-loaded fork called a <em>furcula</em> folded beneath its
+      abdomen. When danger arrives, the furcula releases and launches the animal
+      away faster than a predator can follow.
     </p>
     <p>
-      It survives by shutting down. In a state called cryptobiosis the body
-      dries into a small glass grain, the tun, and its metabolism stops. Add
-      water and the animal comes back. It is the same individual it was before
-      it went to sleep.
+      A springtail survives through responsiveness. It senses a change, stores
+      tension and converts that tension into a decisive jump.
+      It lives close to moisture, fungi and decaying matter, reading a local
+      environment that can change at microscopic scale.
     </p>
     <p>
-      somio takes that idea and rebuilds it in cryptography. A water bear is
-      hard to kill because its identity outlasts any pause in its life. somio
-      works the same way. Its identity is a fixed value that anyone can check.
-      Flip one bit of the seed and the check fails, and the chain reads it as a
-      stranger. somio can lie dormant on chain for as long as it needs, wake up,
-      and prove it is still the same somio.
+      somio rebuilds that reflex in cryptography. The seed is its body, the
+      commitment is its stored tension, and every signed transition is a jump
+      that can be checked. Flip one bit of the seed and the check fails; the
+      chain reads it as a stranger. Under stress, somio arms, verifies the next
+      state and moves only when its identity remains intact.
     </p>
     <p class="cite">
-      Based on Suzuki, <a href="https://arxiv.org/abs/2608.02986" target="_blank" rel="noopener">Internalising the Identity Primitive</a> (arXiv 2608.02986).
+      Identity model based on Suzuki, <a href="https://arxiv.org/abs/2608.02986" target="_blank" rel="noopener">Internalising the Identity Primitive</a>. Biological metaphor informed by research on <a href="https://www.jstage.jst.go.jp/article/jabmech/3/1/3_85/_pdf" target="_blank" rel="noopener">globular springtail jumping mechanics</a>.
     </p>
   </section>
 
@@ -140,8 +141,8 @@
     <div class="step">
       <span class="n">04</span>
       <div>
-        <h3>Dormancy</h3>
-        <p>Under stress somio enters the tun state. It stops acting but keeps its identity intact. It returns to active only once the environment recovers.</p>
+        <h3>Arming</h3>
+        <p>Under stress somio enters the armed state. It folds the next action inward, rechecks the environment and releases only a transition that still matches its identity commitment.</p>
       </div>
     </div>
     <div class="step">
@@ -193,22 +194,22 @@
       <svg viewBox="0 0 560 210" role="img" aria-label="state machine">
         <defs><marker id="ar3" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0 0l6 3-6 3z" fill="#6a6a6a"/></marker></defs>
         <path d="M150 46 Q280 2 410 46" fill="none" marker-end="url(#ar3)"/>
-        <text class="lab" x="280" y="14">stress</text>
+        <text class="lab" x="280" y="14">risk detected</text>
         <path d="M410 80 Q280 124 150 80" fill="none" marker-end="url(#ar3)"/>
-        <text class="lab" x="280" y="112">recover</text>
+        <text class="lab" x="280" y="112">signed leap</text>
         <path d="M124 92 L256 138" fill="none" marker-end="url(#ar3)"/>
         <text class="lab" x="164" y="128">tamper</text>
         <path d="M436 92 L304 138" fill="none" marker-end="url(#ar3)"/>
         <text class="lab" x="398" y="128">forge</text>
         <g class="snode"><circle cx="110" cy="62" r="38"/><text x="110" y="66">active</text></g>
-        <g class="snode"><circle cx="450" cy="62" r="38"/><text x="450" y="66">tun</text></g>
+        <g class="snode"><circle cx="450" cy="62" r="38"/><text x="450" y="66">armed</text></g>
         <g class="snode dead"><circle cx="280" cy="152" r="36"/><text x="280" y="156">dead</text></g>
       </svg>
-      <figcaption>active and tun trade places with the environment. a failed identity check ends in dead, with no way back.</figcaption>
+      <figcaption>risk folds the next action into armed state. a verified leap returns somio to active; a failed identity check ends in dead.</figcaption>
     </figure>
 
     <div class="srow"><span class="k">active</span><p>Awake, sensing the environment, writing signed transitions to its history.</p></div>
-    <div class="srow"><span class="k">tun</span><p>Dormant. Metabolism halts, the identity holds, no history is written.</p></div>
+    <div class="srow"><span class="k">armed</span><p>The next action is held under tension while environment, seed and commitment are checked.</p></div>
     <div class="srow"><span class="k">dead</span><p>The identity invariant broke. This is no longer the same animal.</p></div>
   </section>
 
@@ -231,8 +232,8 @@
     <h2>Notes</h2>
     <div class="qa"><p class="q">Is somio trained?</p><p class="a">No. The weights come from the seed once, at birth. somio has a fixed disposition, not a learned one.</p></div>
     <div class="qa"><p class="q">Can two somios be the same?</p><p class="a">Only if they share a seed, and then they are one animal, not two. Every other somio is a different seed and a different weight set.</p></div>
-    <div class="qa"><p class="q">What if it sleeps for a year?</p><p class="a">Nothing changes. The tun state has no cost and no clock. somio wakes and proves itself with the same check it always runs.</p></div>
-    <div class="qa"><p class="q">Where does the paper end and somio begin?</p><p class="a">The paper defines the primitive. somio gives it a body, a lifecycle, and a water bear.</p></div>
+    <div class="qa"><p class="q">Why a globular springtail?</p><p class="a">Its furcula stays folded beneath the body until a threat turns stored tension into movement. somio treats a verified state transition the same way: prepare, check, then leap.</p></div>
+    <div class="qa"><p class="q">Where does the paper end and somio begin?</p><p class="a">The paper defines the identity primitive. somio gives it a body, a lifecycle and the reflex of a globular springtail.</p></div>
   </section>
 
   <hr />
@@ -248,7 +249,7 @@
 
 <footer>
   <span>somio</span>
-  <span>an unkillable on chain organism</span>
+  <span>a self-verifying on chain organism</span>
 </footer>
 
 </body>
