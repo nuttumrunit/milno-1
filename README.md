@@ -12,4 +12,4 @@ pinned: false
 
 Somio is a self-verifying on-chain agent inspired by the globular springtail: prepare, verify, then leap.
 
-[Website](https://nuttumrunit.github.io/milno-1/) · [X](https://x.com/somiotechx)
+[Website](https://somio.run/) · [X](https://x.com/somiotechx)
