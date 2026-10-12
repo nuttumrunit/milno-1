@@ -1,7 +1,7 @@
 ---
 title: Somio
 emoji: 🟠
-colorFrom: orange
+colorFrom: yellow
 colorTo: gray
 sdk: static
 app_file: index.html
